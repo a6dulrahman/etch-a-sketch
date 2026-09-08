@@ -44,9 +44,34 @@ submitBtn.addEventListener('click', (e) =>
 
         container.addEventListener('mouseover', (event) =>
         {
-            if (event.target.classList == 'pixel')
+            function randomColor()
             {
-                event.target.style.backgroundColor = '#ffffff'
+                const rgb = []
+                for (let i = 0; i < 4; i++)
+                {
+                    rgb.push(Math.floor(Math.random() * 256))
+                }
+
+                return `${new Uint8Array(rgb).toHex()}`
+            }
+
+            if (event.target.classList.contains('pixel'))
+            {
+                if (event.target.classList.contains('colored'))
+                {
+                    if (event.target.style.opacity < 1)
+                    {
+                        const computedStyle = getComputedStyle(event.target)
+                        const opacity = parseFloat(computedStyle.opacity)
+
+                        event.target.style.opacity = opacity + .1
+                    }
+                } else
+                {
+                    event.target.style.backgroundColor = '#' + randomColor()
+                    event.target.style.opacity = '.1'
+                    event.target.classList.add('colored')
+                }
             }
         })
 

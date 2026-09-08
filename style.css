@@ -18,9 +18,9 @@ button#config {
 div#etch-a-sketch {
   width: 400px;
   height: 400px;
-  border: 37px solid red;
+  border: 37px solid rgb(255, 0, 0 , 1);
   border-radius: 37px;
-  background-color: #53c22a;
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   flex: 0 0 500px;
@@ -42,5 +42,4 @@ div.row {
 
 div.pixel {
   flex: 1 1 1px;
-  background-color: blue;
 }
