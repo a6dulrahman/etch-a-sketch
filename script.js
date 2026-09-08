@@ -27,24 +27,27 @@ submitBtn.addEventListener('click', (e) =>
             div.remove()
         })
 
-        const width = parseInt(400 / input.value)
-        const height = parseInt(400 / input.value)
-
-        const squares = input.value * input.value
-
-        for (let i = 0; i < squares; i++)
+        for (let i = 0; i < input.value; i++)
         {
-            const div = document.createElement('div')
-            div.style.width = `${width}px`
-            div.style.height = `${height}px`
-            div.style.background = '#010101'
+            const row = document.createElement('div')
+            row.classList.add('row')
+            for (let i = 0; i < input.value; i++)
+            {
+                const rowItem = document.createElement('div')
+                rowItem.classList.add('pixel')
+                row.append(rowItem)
+            }
 
-            container.append(div)
+            container.append(row)
+
         }
 
         container.addEventListener('mouseover', (event) =>
         {
-            event.target.style.backgroundColor = '#FFFFFF'
+            if (event.target.classList == 'pixel')
+            {
+                event.target.style.backgroundColor = '#ffffff'
+            }
         })
 
         dialog.close()
